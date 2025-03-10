@@ -33,25 +33,35 @@ nssm-2.25.0.exe set memcached DisplayName "Memcached Service"
 nssm-2.25.0.exe set memcached ObjectName LocalSystem
 nssm-2.25.0.exe set memcached Start SERVICE_AUTO_START
 nssm-2.25.0.exe set memcached Type SERVICE_WIN32_OWN_PROCESS
-
-----
+```
 Verify Memcached is Running
 Check if Memcached is listening on port 11211
 Open PowerShell and run:
+```sh
 Test-NetConnection -ComputerName localhost -Port 11211
-If the result shows:
-TcpTestSucceeded : True
+```
+If the result shows: "TcpTestSucceeded : True"
 🎉 Memcached is running successfully!
 Check Active Connections
 Run the following command in PowerShell to display all active connections on Memcached's port:
+```sh 
 Get-NetTCPConnection -LocalPort 11211
+```
 Manage Memcached Service
 ▶️ Start Memcached
+```sh
 nssm-2.25.0.exe start memcached
+```
 ⏹️ Stop Memcached
+```sh
 nssm-2.25.0.exe stop memcached
+```
 🔄 Restart Memcached
+```sh
 nssm-2.25.0.exe restart memcached
+```
 ❌ Uninstall Memcached Service
+```sh
 nssm-2.25.0.exe remove memcached confirm
+```
 
